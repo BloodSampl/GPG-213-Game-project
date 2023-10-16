@@ -5,23 +5,29 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    CharacterController controller;
-    [SerializeField] int _playerSpeed;
-    [SerializeField] GameObject _playerBody;
-    Vector3 _playerInput;
+    CharacterController charCon;
+    [SerializeField] int playerSpeed;
+    [SerializeField] GameObject playerBody;
+    Vector3 moveAmount;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        charCon = GetComponent<CharacterController>();
     }
 
     private void FixedUpdate()
     {
-        // make gravity for the player
+        if(!charCon.isGrounded)
+        {
+            moveAmount.y = moveAmount.y + (Physics.gravity.y * Time.deltaTime);
+        }
+        else
+        {
+            moveAmount.y = Physics.gravity.y * Time.deltaTime;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         MovePlayer();
@@ -29,17 +35,18 @@ public class PlayerMovement : MonoBehaviour
     }
     void MovePlayer()
     {
-        _playerInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(new Vector3(_playerInput.x * _playerSpeed,
-        0,
-        _playerInput.z * _playerSpeed) * Time.deltaTime);
+        moveAmount = new Vector3(Input.GetAxis("Horizontal"), moveAmount.y, Input.GetAxis("Vertical"));
+        charCon.Move(new Vector3(moveAmount.x * playerSpeed,
+        moveAmount.y,
+        moveAmount.z * playerSpeed) * Time.deltaTime);
         
     }
     void FacePlayer()
     {
-        if(_playerInput != Vector3.zero)
+        if(moveAmount != Vector3.zero)
         {
-            _playerBody.transform.forward = Vector3.Normalize(_playerInput);  // Need to be fixed later.
+            Quaternion rotation = Quaternion.LookRotation(moveAmount.normalized);
+            playerBody.transform.rotation = rotation;  // Need to be fixed later.
         }
     }
 }
