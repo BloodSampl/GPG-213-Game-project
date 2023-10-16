@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            moveAmount.y = Physics.gravity.y * Time.deltaTime;
+            moveAmount.y = Physics.gravity.y * Time.fixedDeltaTime;
         }
     }
 
@@ -35,7 +35,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void MovePlayer()
     {
+        float yStore = moveAmount.y;
         moveAmount = new Vector3(Input.GetAxis("Horizontal"), moveAmount.y, Input.GetAxis("Vertical"));
+        moveAmount.y = 0f;
+        moveAmount = moveAmount.normalized;
+
+        moveAmount.y = yStore;
+
         charCon.Move(new Vector3(moveAmount.x * playerSpeed,
         moveAmount.y,
         moveAmount.z * playerSpeed) * Time.deltaTime);
@@ -45,8 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(moveAmount != Vector3.zero)
         {
-            Quaternion rotation = Quaternion.LookRotation(moveAmount.normalized);
-            playerBody.transform.rotation = rotation;  // Need to be fixed later.
+            playerBody.transform.forward = new Vector3(moveAmount.x , 0 , moveAmount.z);  // Need to be fixed later.
         }
     }
 }
