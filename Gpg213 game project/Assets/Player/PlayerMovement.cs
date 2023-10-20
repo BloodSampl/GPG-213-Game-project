@@ -6,52 +6,67 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     CharacterController charCon;
-    [SerializeField] int playerSpeed;
+    [SerializeField] float playerSpeed;
+    [SerializeField] float rotateSpeed;
     [SerializeField] GameObject playerBody;
-    Vector3 moveAmount;
+    Vector3 moveInput;
+    Vector3 facingDirection;
 
+    Transform cam;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        cam = Camera.main.transform;
+        charCon = GetComponent<CharacterController>();
+    }
     void Start()
     {
-        charCon = GetComponent<CharacterController>();
+
     }
 
     private void FixedUpdate()
     {
         if(!charCon.isGrounded)
         {
-            moveAmount.y = moveAmount.y + (Physics.gravity.y * Time.deltaTime);
+            moveInput.y =+ moveInput.y + (Physics.gravity.y * Time.deltaTime);
         }
         else
         {
-            moveAmount.y = Physics.gravity.y * Time.fixedDeltaTime;
+            moveInput.y = Physics.gravity.y * Time.fixedDeltaTime;
         }
     }
 
     void Update()
     {
         MovePlayer();
-        FacePlayer();
+        FaceDirection();
+
     }
     void MovePlayer()
     {
-        float yStore = moveAmount.y;
-        moveAmount = new Vector3(Input.GetAxis("Horizontal"), moveAmount.y, Input.GetAxis("Vertical"));
-        moveAmount.y = 0f;
-        moveAmount = moveAmount.normalized;
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        moveAmount.y = yStore;
+        moveInput = new Vector3(horizontalInput, moveInput.y, verticalInput);
+        float magnitude = Mathf.Clamp01(moveInput.magnitude) * playerSpeed;
 
-        charCon.Move(new Vector3(moveAmount.x * playerSpeed,
-        moveAmount.y,
-        moveAmount.z * playerSpeed) * Time.deltaTime);
-        
+
+        moveInput = Quaternion.AngleAxis(cam.rotation.eulerAngles.y, Vector3.up) * moveInput;
+        moveInput.Normalize();
+
+        charCon.Move(moveInput * magnitude * Time.deltaTime);
     }
-    void FacePlayer()
+    void FaceDirection()
     {
-        if(moveAmount != Vector3.zero)
+        if (moveInput != Vector3.zero)
         {
-            playerBody.transform.forward = new Vector3(moveAmount.x , 0 , moveAmount.z);  // Need to be fixed later.
+            Vector3 targetDirection = new Vector3(moveInput.x, 0, moveInput.z);
+            if (targetDirection.magnitude > 0.001f)
+            {
+                Quaternion rotation = Quaternion.LookRotation(targetDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
+            }
         }
     }
 }
