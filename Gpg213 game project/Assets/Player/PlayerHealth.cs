@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
         PlayerHealthUIScale(currentHealth, maxHealth);
     }
 
-    void PlayerDamage(float damage)
+    void PlayerDamage(int damage)
     {
         if(currentHealth > 0)
         {

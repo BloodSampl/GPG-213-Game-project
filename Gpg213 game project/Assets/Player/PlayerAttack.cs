@@ -8,7 +8,6 @@ public class PlayerAttack : MonoBehaviour
     private bool attacking = false;
 
     [SerializeField] float timeToAttack = 0.25f;
-    private float timer = 0f;
     [SerializeField] Animator anim;
 
     private void Start()
