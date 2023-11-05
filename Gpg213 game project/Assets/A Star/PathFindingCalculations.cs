@@ -1,16 +1,18 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
+using System.Runtime.InteropServices;
 
-
+//[ExecuteAlways]
 public class PathFindingCalculations : MonoBehaviour
 {
     PathFindingGrid grid;
     [SerializeField] Vector2Int startingNode;
     [SerializeField] Vector2Int endNode;
-    TextMeshProUGUI []lable;
+    public List<Node> enemyPath;
     List<Node> openNodes = new List<Node>();
     List<Node> closedNodes = new List<Node>();
 
@@ -25,7 +27,7 @@ public class PathFindingCalculations : MonoBehaviour
     }
     private void Start()
     {
-        grid.GenerateGrid();
+        //grid.GenerateGrid();
         ChangeColorsForOpenNodes(Color.green);
         FindPath();
     }
@@ -41,7 +43,7 @@ public class PathFindingCalculations : MonoBehaviour
 
             if(currentNode == targetNode)
             {
-                RetracePath(startNode, targetNode);
+                enemyPath = RetracePath(startNode, targetNode);
                 Debug.Log("Path Found");
                 return; 
             }
@@ -129,7 +131,6 @@ public class PathFindingCalculations : MonoBehaviour
         foreach (Node node in openNodes)
         {
             GameObject nodeObject = GameObject.Find(node.NodeGridPos.ToString());
-            //Debug.Log(node.NodeGridPos);
             Renderer nodeRenderer = nodeObject.GetComponentInChildren<Renderer>();
             nodeRenderer.material.color = color;
 
@@ -137,7 +138,7 @@ public class PathFindingCalculations : MonoBehaviour
     }
 
 
-    void RetracePath(Node start, Node goal)
+     public List<Node> RetracePath(Node start, Node goal)
     {
         List<Node> path = new List<Node>();
         Node currentNode = goal;
@@ -148,6 +149,7 @@ public class PathFindingCalculations : MonoBehaviour
             currentNode = currentNode.Parent;
         }
         DisplayPath(path);
+        return  path;
     }
     void DisplayPath(List<Node> path)
     {

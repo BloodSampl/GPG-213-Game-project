@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] EnemySO enemy;
-    [SerializeField] Image healthBar;
+    EnemyUI enemyUI;
+    
     float enemyMaxHealth;
     float enemyCurrentHealth;
 
     private void Start()
     {
+        enemyUI = GetComponentInChildren<EnemyUI>();
         enemyMaxHealth = enemy.health;
         enemyCurrentHealth = enemyMaxHealth;
     }
@@ -30,18 +32,12 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("Enemy Is dead");
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public void EnemyHit()
     {
-        if(collision.gameObject.CompareTag("Player Weapon"))
-        {
-            Debug.Log("ouch");
-            EnemyDamage(8);
-            EnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
-            Debug.Log(healthBar.transform.localScale.x.ToString());
-        }
-    }
-    void EnemyHealthBar(float currentHealth , float maxHealth)
-    {
-        healthBar.transform.localScale = new Vector3(Mathf.Clamp(currentHealth/maxHealth, 0, 1), 1, 1); 
+
+         Debug.Log("ouch");
+         EnemyDamage(5);
+         enemyUI.EnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
+        
     }
 }

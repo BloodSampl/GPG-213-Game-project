@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private MeshCollider attackArea;
+    [SerializeField] BoxCollider attackArea;
     private bool attacking = false;
 
-    [SerializeField] float timeToAttack = 0.25f;
+    [SerializeField] float timeToAttack = 1f;
     [SerializeField] Animator anim;
 
     private void Start()
     {
-       attackArea = transform.GetChild(1).GetChild(0).GetComponent<MeshCollider>();
+       
     }
     private void Update()
     {
-       StartCoroutine("Attack");
+       StartCoroutine(Attack());
     }
     IEnumerator Attack()
     {
@@ -32,4 +32,5 @@ public class PlayerAttack : MonoBehaviour
             attacking = false;
         }
     }
+   
 }
