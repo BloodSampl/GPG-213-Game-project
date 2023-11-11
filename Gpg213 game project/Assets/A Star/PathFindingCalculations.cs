@@ -27,7 +27,7 @@ public class PathFindingCalculations : MonoBehaviour
     }
     private void Start()
     {
-        //grid.GenerateGrid();
+        grid.GenerateGrid();
         ChangeColorsForOpenNodes(Color.green);
         FindPath();
     }
@@ -101,24 +101,56 @@ public class PathFindingCalculations : MonoBehaviour
 
         Vector2Int currentPosition = current.NodeGridPos;
 
+        LayerMask obstacleLayer = LayerMask.GetMask("ObstacleLayer");
+
+        float sphereRadius = 0.5f;
+
         if (currentPosition.x < grid.width - 1)
         {
-            neighborNodes.Add(grid.GetNode(currentPosition + new Vector2Int(1, 0)));
+            Vector2Int rightNeighborPos = currentPosition + new Vector2Int(1, 0);
+            if (IsNodeWalkable(currentPosition, rightNeighborPos, obstacleLayer, sphereRadius))
+            {
+                neighborNodes.Add(grid.GetNode(rightNeighborPos));
+            }
         }
         if (currentPosition.x > 0)
         {
-            neighborNodes.Add(grid.GetNode(currentPosition + new Vector2Int(-1, 0)));
+            Vector2Int leftNeighborPos = currentPosition + new Vector2Int(-1, 0);
+            if (IsNodeWalkable(currentPosition, leftNeighborPos, obstacleLayer, sphereRadius))
+            {
+                neighborNodes.Add(grid.GetNode(leftNeighborPos));
+            }
         }
         if (currentPosition.y < grid.height - 1)
         {
-            neighborNodes.Add(grid.GetNode(currentPosition + new Vector2Int(0, 1)));
+            Vector2Int topNeighborPos = currentPosition + new Vector2Int(0, 1);
+            if (IsNodeWalkable(currentPosition, topNeighborPos, obstacleLayer, sphereRadius))
+            {
+                neighborNodes.Add(grid.GetNode(topNeighborPos));
+            }
         }
         if (currentPosition.y > 0)
         {
-            neighborNodes.Add(grid.GetNode(currentPosition + new Vector2Int(0, -1)));
+            Vector2Int bottomNeighborPos = currentPosition + new Vector2Int(0, -1);
+            if (IsNodeWalkable(currentPosition, bottomNeighborPos, obstacleLayer, sphereRadius))
+            {
+                neighborNodes.Add(grid.GetNode(bottomNeighborPos));
+            }
+        }
+        return neighborNodes;
+    }
+    bool IsNodeWalkable(Vector2Int from, Vector2Int to, LayerMask obstacleLayer, float radius)
+    {
+        Node fromNode = grid.GetNode(from);
+        Node toNode = grid.GetNode(to);
+
+        // Check if the node is walkable using sphere detection
+        if (fromNode.IsWalkableTo(toNode, obstacleLayer, radius))
+        {
+            return true;
         }
 
-        return neighborNodes;
+        return false;
     }
 
     int CalculateNodeCost(Vector2Int nodOneVector, Vector2Int nodTwoVector)
