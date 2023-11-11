@@ -3,8 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-public class Node //: IComparable
+/*public enum GroundType
+{
+    Default,
+    WalkableGround,
+    // Add more ground types as needed
+}*/
+public class Node
 {
     public GameObject go;
 
@@ -13,14 +18,10 @@ public class Node //: IComparable
     public int Fcost
     {
         get
-        {
-            
+        {         
             return Hcost + Gcost;
         }
     }
-
-    
-
     public TextMeshProUGUI Lable
     {
         get
@@ -32,8 +33,7 @@ public class Node //: IComparable
             Lable = value;
         }
     }
-        
-        
+    //public GroundType Ground { get; set; } = GroundType.Default;
 
     public bool Walkble = true;
     public Node Parent; 
@@ -45,14 +45,19 @@ public class Node //: IComparable
         NodeGridPos = nodePos;
         NodeWorldPos = nodeWorldPos;
     }
+    public bool IsWalkableTo(Node targetNode, LayerMask obstacleLayer, float radius)
+    {
+        Vector3 fromPosition = NodeWorldPos;
+        Vector3 toPosition = targetNode.NodeWorldPos;
 
-    //public int CompareTo(object obj)
-    //{
-    //    Node otherNode = (Node)obj;
-    //
-    //    if(Fcost < otherNode.Fcost)
-    //    {
-    //
-    //    }
-    //}
+        // Check if there's any collider within the sphere
+        if (Physics.CheckSphere(fromPosition, radius, obstacleLayer))
+        {
+            // If the sphere hits an obstacle, the node is not walkable
+            return false;
+        }
+
+        // The node is walkable if the sphere doesn't hit any obstacles
+        return true;
+    }
 }

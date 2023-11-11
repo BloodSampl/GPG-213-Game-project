@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-[ExecuteAlways]
+//[ExecuteAlways]
 public class PathFindingGrid : MonoBehaviour
 {
     PathFindingCalculations calculations;
@@ -15,7 +15,7 @@ public class PathFindingGrid : MonoBehaviour
 
     private void Start()
     {
-        GenerateGrid();
+        //GenerateGrid();
     }
     public Node GetNode(Vector2Int gridPosition)
     {
