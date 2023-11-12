@@ -1,34 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
+    bool enemyMovingTowrdsGoal;
     PathFindingCalculations pathF;
-    [SerializeField] List<Node> enemyPath = new List<Node>();
+    List<Node> enemyPath = new List<Node>();
+    [SerializeField]
+    [Range(0f,5f)] float speed = 1f;
+
     private void Start()
     {
-        pathF = FindAnyObjectByType<PathFindingCalculations>().GetComponent<PathFindingCalculations>();
-        if(pathF != null )
+        pathF = FindObjectOfType<PathFindingCalculations>();
+    }
+    private void Update()
+    {
+        if (pathF != null && !enemyMovingTowrdsGoal)
         {
-            enemyPath = pathF.enemyPath;
+            enemyPath = new List<Node>(pathF.enemyPath);
             enemyPath.Reverse();
             StartCoroutine(EnemyPathFinder());
+            enemyMovingTowrdsGoal = true;
         }
     }
-    void Update()
-    {
-        //GetEnemyPath();
-        // transform.position = enemyPath[0].transform.position;
-    }
     IEnumerator EnemyPathFinder()
-    { 
+    {
         foreach (Node node in enemyPath)
         {
-            GameObject nodeObject = GameObject.Find(node.NodeGridPos.ToString());
-            Debug.Log(nodeObject.transform.position);
-            transform.position = nodeObject.transform.position;
-            yield return new WaitForSeconds(1f);
+            string nodeName = node.NodeGridPos.ToString();
+            GameObject nodeObject = GameObject.Find(nodeName);
+
+            if (nodeObject != null)
+            {
+                Debug.Log(nodeObject.transform.position);
+                Vector3 startPostion = transform.position;
+                Vector3 endPostion = nodeObject.transform.position;
+                float travelTime = 0f;
+
+                transform.LookAt(endPostion);
+                while(travelTime < 1f)
+                {
+                    travelTime += Time.deltaTime * speed;
+                    transform.position = Vector3.Lerp(startPostion, endPostion, travelTime);
+                    yield return new WaitForEndOfFrame();
+                }
+            }
         }
     }
 }

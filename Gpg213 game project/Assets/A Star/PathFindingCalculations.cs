@@ -13,6 +13,7 @@ public class PathFindingCalculations : MonoBehaviour
     [SerializeField] Vector2Int startingNode;
     [SerializeField] Vector2Int endNode;
     public List<Node> enemyPath;
+
     List<Node> openNodes = new List<Node>();
     List<Node> closedNodes = new List<Node>();
 
@@ -73,13 +74,10 @@ public class PathFindingCalculations : MonoBehaviour
                         openNodes.Add(neighbor);
                     }
                 }
-
             }
-
         }
         Debug.Log("No Path was found");
     }
-
     Node GetLowestFcostNode(List<Node> nodes)
     {
         Node lowestFcostNode = nodes[0];
@@ -92,9 +90,6 @@ public class PathFindingCalculations : MonoBehaviour
         }
         return lowestFcostNode;
     }
-
-
-
     List<Node> GetNeighbors(Node current)
     {
         List<Node> neighborNodes = new List<Node>();
@@ -152,7 +147,6 @@ public class PathFindingCalculations : MonoBehaviour
 
         return false;
     }
-
     int CalculateNodeCost(Vector2Int nodOneVector, Vector2Int nodTwoVector)
     {
         return Mathf.Abs(nodOneVector.x - nodTwoVector.x) +
@@ -168,8 +162,6 @@ public class PathFindingCalculations : MonoBehaviour
 
         }
     }
-
-
      public List<Node> RetracePath(Node start, Node goal)
     {
         List<Node> path = new List<Node>();
