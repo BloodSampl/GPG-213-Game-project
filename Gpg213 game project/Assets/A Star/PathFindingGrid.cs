@@ -25,15 +25,18 @@ public class PathFindingGrid : MonoBehaviour
 
     public void GenerateGrid()
     {
-        for(int z = 0; z < height; z++)
+        Transform gridParent = transform;
+        for (int z = 0; z < height; z++)
         {
             for(int x = 0; x < width; x++)
             {
                 Vector2Int pos = new Vector2Int(x, z);
-                Node newNode = new Node(pos,new Vector3(pos.x,0 ,pos.y));
-                nodPrefab = Instantiate(prefab, new Vector3(pos.x , 1, pos.y), Quaternion.identity);
+                Vector3 nodeWorldPos = gridParent.position + new Vector3(pos.x, 0, pos.y);
+
+                Node newNode = new Node(pos, nodeWorldPos);
+                nodPrefab = Instantiate(prefab, nodeWorldPos, Quaternion.identity);
                 newNode.go = nodPrefab;
-                nodPrefab.transform.parent = transform;
+                nodPrefab.transform.parent = gridParent;
                 nodPrefab.name = pos.ToString();
                 nodes.Add(newNode);
             }
