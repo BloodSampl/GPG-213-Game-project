@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 /*public enum GroundType
 {
     Default,
@@ -33,6 +34,12 @@ public class Node
             Lable = value;
         }
     }
+    public void Reset()
+    {
+        Gcost = 0;
+        Hcost = 0;
+        Parent = null;
+    }
     //public GroundType Ground { get; set; } = GroundType.Default;
 
     public bool Walkble = true;
@@ -50,14 +57,10 @@ public class Node
         Vector3 fromPosition = NodeWorldPos;
         Vector3 toPosition = targetNode.NodeWorldPos;
 
-        // Check if there's any collider within the sphere
         if (Physics.CheckSphere(fromPosition, radius, obstacleLayer))
         {
-            // If the sphere hits an obstacle, the node is not walkable
             return false;
         }
-
-        // The node is walkable if the sphere doesn't hit any obstacles
         return true;
     }
 }

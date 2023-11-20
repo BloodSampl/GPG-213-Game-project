@@ -12,15 +12,14 @@ public class PathFindingCalculations : MonoBehaviour
     PathFindingGrid grid;
     [SerializeField] Vector2Int startingNode;
     [SerializeField] Vector2Int endNode;
-    public List<Node> enemyPath;
-
+    public List<Node> enemyPath = new List<Node>();
     List<Node> openNodes = new List<Node>();
     List<Node> closedNodes = new List<Node>();
 
-    public string gCostLabelName = "Gcost"; 
+    /*public string gCostLabelName = "Gcost"; 
     public string hCostLabelName = "Hcost";
     public string fCostLabelName = "Fcost";
-    public string labelsParentName = "Canvas";
+    public string labelsParentName = "Canvas";*/
 
     private void Awake()
     {
@@ -30,12 +29,31 @@ public class PathFindingCalculations : MonoBehaviour
     {
         grid.GenerateGrid();
         ChangeColorsForOpenNodes(Color.green);
+       // FindPath();
+    }
+    private void Update()
+    {
         FindPath();
     }
     void FindPath()
     {
         Node startNode = grid.GetNode(startingNode);
         Node targetNode = grid.GetNode(endNode);
+        startNode.Reset();
+        targetNode.Reset();
+
+        openNodes.Clear();  // Clear openNodes list
+        closedNodes.Clear();  // Clear closedNodes list
+                              // Clear the old path and reset the color of nodes in the old path
+        foreach (Node node in enemyPath)
+        {
+            GameObject oldNodeObject = GameObject.Find(node.NodeGridPos.ToString());
+            Renderer oldNodeRenderer = oldNodeObject.GetComponentInChildren<Renderer>();
+            oldNodeRenderer.material.color = Color.white; // Set the color to the default color or any color you prefer
+        }
+
+        // Create a new enemyPath list
+        enemyPath = new List<Node>();
         openNodes.Add(startNode);
 
         while (openNodes.Count > 0)
@@ -58,15 +76,15 @@ public class PathFindingCalculations : MonoBehaviour
                 {
                     continue;
                 }
-
+                //neighbor.Reset();
                 int newNeighborGcost = currentNode.Gcost + CalculateNodeCost(currentNode.NodeGridPos, neighbor.NodeGridPos);
 
                 if(newNeighborGcost < neighbor.Gcost || !openNodes.Contains(neighbor))
                 {
                     neighbor.Gcost = newNeighborGcost;
-                    //Debug.Log(neighbor.Gcost);
+                    
                     neighbor.Hcost = CalculateNodeCost(neighbor.NodeGridPos, endNode);
-                    //Debug.Log(neighbor.Hcost);
+                    
                     neighbor.Parent = currentNode;
 
                     if(!openNodes.Contains(neighbor))
@@ -144,7 +162,6 @@ public class PathFindingCalculations : MonoBehaviour
         {
             return true;
         }
-
         return false;
     }
     int CalculateNodeCost(Vector2Int nodOneVector, Vector2Int nodTwoVector)
@@ -159,7 +176,6 @@ public class PathFindingCalculations : MonoBehaviour
             GameObject nodeObject = GameObject.Find(node.NodeGridPos.ToString());
             Renderer nodeRenderer = nodeObject.GetComponentInChildren<Renderer>();
             nodeRenderer.material.color = color;
-
         }
     }
      public List<Node> RetracePath(Node start, Node goal)
