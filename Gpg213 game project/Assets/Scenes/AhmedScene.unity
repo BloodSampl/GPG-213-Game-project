@@ -170,10 +170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingNode: {x: 0, y: 0}
   endNode: {x: 0, y: 28}
-  gCostLabelName: Gcost
-  hCostLabelName: Hcost
-  fCostLabelName: Fcost
-  labelsParentName: Canvas
 --- !u!4 &205064219
 Transform:
   m_ObjectHideFlags: 0
@@ -810,7 +806,7 @@ GameObject:
   - component: {fileID: 1700629152}
   - component: {fileID: 1700629151}
   - component: {fileID: 1700629154}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: collider
   m_Icon: {fileID: 0}

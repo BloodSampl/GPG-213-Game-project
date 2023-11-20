@@ -21,8 +21,11 @@ public class EnemyMover : MonoBehaviour
         {
             enemyPath = new List<Node>(pathF.enemyPath);
             enemyPath.Reverse();
-            StartCoroutine(EnemyPathFinder());
-            enemyMovingTowrdsGoal = true;
+            if (enemyPath.Count > 0)
+            {
+                StartCoroutine(EnemyPathFinder());
+                enemyMovingTowrdsGoal = true;
+            }
         }
     }
     IEnumerator EnemyPathFinder()
