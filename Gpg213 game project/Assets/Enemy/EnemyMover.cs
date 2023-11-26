@@ -28,6 +28,8 @@ public class EnemyMover : MonoBehaviour
             }
         }
     }
+    // seperate path finding from the enemy
+    // when I move the cube or somthing happens I will get a new pathfor the enemy
     IEnumerator EnemyPathFinder()
     {
         foreach (Node node in enemyPath)

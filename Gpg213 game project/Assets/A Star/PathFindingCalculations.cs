@@ -15,6 +15,7 @@ public class PathFindingCalculations : MonoBehaviour
     public List<Node> enemyPath = new List<Node>();
     List<Node> openNodes = new List<Node>();
     List<Node> closedNodes = new List<Node>();
+    GameObject go;
 
     /*public string gCostLabelName = "Gcost"; 
     public string hCostLabelName = "Hcost";
@@ -29,10 +30,13 @@ public class PathFindingCalculations : MonoBehaviour
     {
         grid.GenerateGrid();
         ChangeColorsForOpenNodes(Color.green);
-       // FindPath();
+        FindPath();
+        
+
     }
     private void Update()
     {
+        
         FindPath();
     }
     void FindPath()
