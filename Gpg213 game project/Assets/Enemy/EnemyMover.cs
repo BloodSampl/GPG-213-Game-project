@@ -53,5 +53,6 @@ public class EnemyMover : MonoBehaviour
                 }
             }
         }
+        Destroy(gameObject);
     }
 }
