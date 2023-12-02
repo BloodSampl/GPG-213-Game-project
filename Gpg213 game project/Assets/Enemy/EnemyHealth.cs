@@ -33,11 +33,11 @@ public class EnemyHealth : MonoBehaviour
            // Debug.Log("Enemy Is dead");
         }
     }
-    public void EnemyHit()
+    public void EnemyHit(int damagedone)
     {
 
          Debug.Log("ouch");
-         EnemyDamage(5);
+         EnemyDamage(damagedone);
          enemyUI.EnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
         
     }
