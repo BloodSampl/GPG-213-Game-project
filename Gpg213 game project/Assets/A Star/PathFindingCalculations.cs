@@ -37,7 +37,7 @@ public class PathFindingCalculations : MonoBehaviour
     private void Update()
     {
         
-        FindPath();
+        //FindPath();
     }
     void FindPath()
     {
