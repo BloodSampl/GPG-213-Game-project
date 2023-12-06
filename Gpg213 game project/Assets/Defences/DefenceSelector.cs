@@ -5,26 +5,38 @@ using UnityEngine;
 public class DefenceSelector : MonoBehaviour
 {
     [SerializeField] public List<GameObject> deffences = new List<GameObject>();
+    Currency currency;
     public int defenceSelection;
+
+    int bearTrapPrice = 3;
+    int spikeRollPrice = 5;
+    int spikeFloorPrice = 4;
+
     //[HideInInspector] public GameObject go;
 
     public void selection1()
     {
-        defenceSelection = 0;
-        InstantiatingDefence();
-        
+        if(currency.currentGold >= bearTrapPrice)
+        {
+            defenceSelection = 0;
+            InstantiatingDefence();
+        }   
     }
     public void selection2()
     {
-        defenceSelection = 1;
-        InstantiatingDefence();
-        
+        if (currency.currentGold >= spikeRollPrice)
+        {
+            defenceSelection = 1;
+            InstantiatingDefence();
+        }      
     }
     public void selection3()
     {
-        defenceSelection = 2;
-        InstantiatingDefence();
-        
+        if (currency.currentGold >= spikeFloorPrice)
+        {
+            defenceSelection = 2;
+            InstantiatingDefence();
+        }
     }
     public void InstantiatingDefence()
     {
