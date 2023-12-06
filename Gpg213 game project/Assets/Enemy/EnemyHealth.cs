@@ -29,15 +29,14 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
-           // Debug.Log("Enemy Is dead");
+            Debug.Log("Enemy Is dead");
         }
     }
-    public void EnemyHit(int damagedone)
+    public void EnemyHit()
     {
 
          Debug.Log("ouch");
-         EnemyDamage(damagedone);
+         EnemyDamage(5);
          enemyUI.EnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
         
     }

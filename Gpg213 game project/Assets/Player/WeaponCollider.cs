@@ -11,7 +11,7 @@ public class WeaponCollider : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             enemy = FindAnyObjectByType(typeof(EnemyHealth)).GetComponent<EnemyHealth>();
-            enemy.EnemyHit(5);
+            enemy.EnemyHit();
         }
     }
 }
