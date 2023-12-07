@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
@@ -10,7 +9,7 @@ public class EnemyMover : MonoBehaviour
     PathFindingCalculations pathF;
     List<Node> enemyPath = new List<Node>();
     [SerializeField]
-    float speed;
+    [Range(0f,5f)] float speed = 1f;
 
     private void Start()
     {
@@ -29,8 +28,6 @@ public class EnemyMover : MonoBehaviour
             }
         }
     }
-    // seperate path finding from the enemy
-    // when I move the cube or somthing happens I will get a new pathfor the enemy
     IEnumerator EnemyPathFinder()
     {
         foreach (Node node in enemyPath)
@@ -40,6 +37,7 @@ public class EnemyMover : MonoBehaviour
 
             if (nodeObject != null)
             {
+                Debug.Log(nodeObject.transform.position);
                 Vector3 startPostion = transform.position;
                 Vector3 endPostion = nodeObject.transform.position;
                 float travelTime = 0f;
@@ -53,6 +51,5 @@ public class EnemyMover : MonoBehaviour
                 }
             }
         }
-        Destroy(gameObject);
     }
 }
