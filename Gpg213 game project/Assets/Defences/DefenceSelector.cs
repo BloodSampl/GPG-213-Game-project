@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefenceSelector : MonoBehaviour
 {
     [SerializeField] public List<GameObject> deffences = new List<GameObject>();
-    Currency currency;
+    [SerializeField] Currency currency;
     public int defenceSelection;
 
     int bearTrapPrice = 3;
@@ -20,7 +20,12 @@ public class DefenceSelector : MonoBehaviour
         {
             defenceSelection = 0;
             InstantiatingDefence();
-        }   
+            currency.currentGold -= bearTrapPrice;
+        }
+        else
+        {
+            Debug.Log("Not enough gold");
+        }
     }
     public void selection2()
     {
@@ -28,7 +33,12 @@ public class DefenceSelector : MonoBehaviour
         {
             defenceSelection = 1;
             InstantiatingDefence();
-        }      
+            currency.currentGold -= spikeRollPrice;
+        }
+        else
+        {
+            Debug.Log("Not enough gold");
+        }
     }
     public void selection3()
     {
@@ -36,6 +46,11 @@ public class DefenceSelector : MonoBehaviour
         {
             defenceSelection = 2;
             InstantiatingDefence();
+            currency.currentGold -= spikeFloorPrice;
+        }
+        else
+        {
+            Debug.Log("Not enough gold");
         }
     }
     public void InstantiatingDefence()

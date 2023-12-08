@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class WeaponCollider : MonoBehaviour
 {
+    [SerializeField] int weaponDamage;
     EnemyHealth enemy;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             enemy = FindAnyObjectByType(typeof(EnemyHealth)).GetComponent<EnemyHealth>();
-            enemy.EnemyHit();
+            enemy.EnemyHit(weaponDamage);
         }
     }
 }
