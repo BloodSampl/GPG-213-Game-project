@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] EnemySO enemy;
+    [SerializeField] Currency currency;
     EnemyUI enemyUI;
     
     float enemyMaxHealth;
@@ -29,14 +30,17 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
+            currency.GoldIncrease(5);
             Debug.Log("Enemy Is dead");
+            Destroy(gameObject);
+            
         }
     }
-    public void EnemyHit()
+    public void EnemyHit(int damage)
     {
 
          Debug.Log("ouch");
-         EnemyDamage(5);
+         EnemyDamage(damage);
          enemyUI.EnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
         
     }
