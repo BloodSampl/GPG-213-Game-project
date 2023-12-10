@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DefenceSelector : MonoBehaviour
 {
     [SerializeField] public List<GameObject> deffences = new List<GameObject>();
     [SerializeField] Currency currency;
+    [SerializeField] TextMeshProUGUI currencyText;
     public int defenceSelection;
 
     int bearTrapPrice = 3;
@@ -21,6 +23,7 @@ public class DefenceSelector : MonoBehaviour
             defenceSelection = 0;
             InstantiatingDefence();
             currency.currentGold -= bearTrapPrice;
+            currencyText.text = currency.currentGold.ToString();
         }
         else
         {
@@ -34,6 +37,7 @@ public class DefenceSelector : MonoBehaviour
             defenceSelection = 1;
             InstantiatingDefence();
             currency.currentGold -= spikeRollPrice;
+            currencyText.text = currency.currentGold.ToString();
         }
         else
         {
@@ -47,6 +51,7 @@ public class DefenceSelector : MonoBehaviour
             defenceSelection = 2;
             InstantiatingDefence();
             currency.currentGold -= spikeFloorPrice;
+            currencyText.text = currency.currentGold.ToString();
         }
         else
         {

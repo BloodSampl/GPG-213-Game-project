@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] EnemySO enemy;
     [SerializeField] Currency currency;
     EnemyUI enemyUI;
@@ -33,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
             currency.GoldIncrease(5);
             Debug.Log("Enemy Is dead");
             Destroy(gameObject);
-            
+            currencyText.text = currency.currentGold.ToString();
         }
     }
     public void EnemyHit(int damage)
