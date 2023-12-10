@@ -29,11 +29,11 @@ public class PathFindingCalculations : MonoBehaviour
     {
         grid.GenerateGrid();
         ChangeColorsForOpenNodes(Color.green);
-       // FindPath();
+        FindPath();
     }
     private void Update()
     {
-        FindPath();
+       // FindPath();
     }
     void FindPath()
     {

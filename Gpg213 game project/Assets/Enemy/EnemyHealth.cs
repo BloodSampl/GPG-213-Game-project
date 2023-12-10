@@ -16,6 +16,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        currency = FindObjectOfType<Currency>().GetComponent<Currency>();
+        currencyText = GameObject.Find("Canvas/GamePlay/Coins Board/Coins").GetComponent<TextMeshProUGUI>();
         enemyUI = GetComponentInChildren<EnemyUI>();
         enemyMaxHealth = enemy.health;
         enemyCurrentHealth = enemyMaxHealth;

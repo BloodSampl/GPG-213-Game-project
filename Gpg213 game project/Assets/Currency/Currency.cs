@@ -17,7 +17,7 @@ public class Currency : MonoBehaviour
     }
     public int GoldIncrease(int goldIncrease)
     {
-        return currentGold = goldIncrease;
+        return currentGold += goldIncrease;
     }
 
 }

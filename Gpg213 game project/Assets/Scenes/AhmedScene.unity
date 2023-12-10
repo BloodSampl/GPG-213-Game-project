@@ -2057,6 +2057,8 @@ MonoBehaviour:
   - {fileID: 6034858966321686983, guid: aa7a0d7861585a34a99c753a7defa856, type: 3}
   - {fileID: 6468465961869630904, guid: 3b1c7b5d9676f73459abbbc1ad126582, type: 3}
   - {fileID: 1394753212657349250, guid: 2325b119124fc4046b0d9b4f255e2bb2, type: 3}
+  currency: {fileID: 0}
+  currencyText: {fileID: 0}
   defenceSelection: 0
 --- !u!1 &2119892171
 GameObject:
@@ -2247,10 +2249,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8909475229201702847, guid: 6bbc496f99dfeff47a1e17a93cd79ca7, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 11400000, guid: 180eeb5cde69802419d355a7ea59a2f4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
