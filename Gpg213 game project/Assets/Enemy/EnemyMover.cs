@@ -9,7 +9,7 @@ public class EnemyMover : MonoBehaviour
     PathFindingCalculations pathF;
     List<Node> enemyPath = new List<Node>();
     [SerializeField]
-    [Range(0f,5f)] float speed = 1f;
+    [Range(0f,5f)] public float speed = 1f;
 
     private void Start()
     {
