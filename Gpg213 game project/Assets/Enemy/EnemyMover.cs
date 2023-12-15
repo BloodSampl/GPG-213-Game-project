@@ -37,7 +37,7 @@ public class EnemyMover : MonoBehaviour
 
             if (nodeObject != null)
             {
-                Debug.Log(nodeObject.transform.position);
+                //Debug.Log(nodeObject.transform.position);
                 Vector3 startPostion = transform.position;
                 Vector3 endPostion = nodeObject.transform.position;
                 float travelTime = 0f;

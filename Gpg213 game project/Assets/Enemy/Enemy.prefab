@@ -128,6 +128,7 @@ MonoBehaviour:
   currencyText: {fileID: 0}
   enemy: {fileID: 11400000, guid: 180eeb5cde69802419d355a7ea59a2f4, type: 2}
   currency: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!54 &6370936428511885162
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ae1e31c66159542b9d25c76544d4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
 --- !u!1 &2889824669865608499
 GameObject:
   m_ObjectHideFlags: 0

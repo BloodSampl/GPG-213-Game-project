@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] EnemySO enemy;
     [SerializeField] Currency currency;
+    [SerializeField] EnemySpawner spawner;
     EnemyUI enemyUI;
     
     float enemyMaxHealth;
@@ -19,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
         currency = FindObjectOfType<Currency>().GetComponent<Currency>();
         currencyText = GameObject.Find("Canvas/GamePlay/Coins Board/Coins").GetComponent<TextMeshProUGUI>();
         enemyUI = GetComponentInChildren<EnemyUI>();
+        spawner = FindObjectOfType<EnemySpawner>().GetComponent<EnemySpawner>();
         enemyMaxHealth = enemy.health;
         enemyCurrentHealth = enemyMaxHealth;
     }
@@ -35,8 +37,9 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             currency.GoldIncrease(5);
-            Debug.Log("Enemy Is dead");
             Destroy(gameObject);
+            spawner.enemiesNumber--;
+            spawner.enemiesText.text = "Enemies: " + spawner.enemiesNumber.ToString();
             currencyText.text = currency.currentGold.ToString();
         }
     }
