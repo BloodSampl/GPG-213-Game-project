@@ -10,16 +10,18 @@ using System.Runtime.InteropServices;
 public class PathFindingCalculations : MonoBehaviour
 {
     PathFindingGrid grid;
-    [SerializeField] Vector2Int startingNode;
-    [SerializeField] Vector2Int endNode;
+    [SerializeField] EnemySpawner enemySpawner;
+    [SerializeField] Vector2Int startingNode; //30 ,0
+    [SerializeField] Vector2Int endNode;  //30 ,84
+    [SerializeField] Vector2Int secondStartingNode; //60 ,20
+    [SerializeField] Vector2Int thirdStartingNode;//  5,84
     public List<Node> enemyPath = new List<Node>();
     List<Node> openNodes = new List<Node>();
     List<Node> closedNodes = new List<Node>();
 
-    /*public string gCostLabelName = "Gcost"; 
-    public string hCostLabelName = "Hcost";
-    public string fCostLabelName = "Fcost";
-    public string labelsParentName = "Canvas";*/
+    public int wave = 1;
+    public bool pathFind = true;
+
 
     private void Awake()
     {
@@ -29,13 +31,30 @@ public class PathFindingCalculations : MonoBehaviour
     {
         grid.GenerateGrid();
         ChangeColorsForOpenNodes(Color.green);
-        FindPath();
+       // FindPath();
     }
     private void Update()
     {
-       // FindPath();
+        if (wave== 1 && pathFind)
+        {
+            FindPath(startingNode, endNode);
+            pathFind = false;
+            
+        }
+        if (wave == 2 && pathFind)
+        {
+            FindPath(secondStartingNode, endNode);
+            pathFind = false;
+
+        }
+        if (wave == 3 && pathFind)
+        {
+            FindPath(thirdStartingNode, endNode);
+            pathFind = false;
+
+        }
     }
-    void FindPath()
+    void FindPath(Vector2Int startingNode, Vector2Int endNode)
     {
         Node startNode = grid.GetNode(startingNode);
         Node targetNode = grid.GetNode(endNode);
