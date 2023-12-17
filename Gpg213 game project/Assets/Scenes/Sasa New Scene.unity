@@ -31094,11 +31094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.03
+      value: 69.116
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41.166523
+      value: -38.44
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31134,7 +31134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068202220970517009, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33047,7 +33047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208451808}
   m_Layer: 0
-  m_Name: PAticles
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
