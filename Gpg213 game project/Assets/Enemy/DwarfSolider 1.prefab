@@ -278,7 +278,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100008, guid: 792e61d487156d94db0fd45793a62d76, type: 3}
       propertyPath: m_Name
-      value: DwarfSolider
+      value: DwarfSolider 1
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 792e61d487156d94db0fd45793a62d76, type: 3}
       propertyPath: m_IsActive
@@ -351,7 +351,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 792e61d487156d94db0fd45793a62d76, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 02ea2b11909556144abbc432ca151839, type: 2}
+      objectReference: {fileID: 9100000, guid: df2e855373dbf394fbd9e1a43d57fb40, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 100104, guid: 792e61d487156d94db0fd45793a62d76, type: 3}
