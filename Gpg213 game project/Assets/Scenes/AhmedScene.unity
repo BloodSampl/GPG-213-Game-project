@@ -168,8 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5f942b0e2a5042b4fc32ede9d3d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 0}
   startingNode: {x: 0, y: 0}
   endNode: {x: 0, y: 28}
+  secondStartingNode: {x: 0, y: 0}
+  thirdStartingNode: {x: 0, y: 0}
+  wave: 1
+  pathFind: 1
 --- !u!4 &205064219
 Transform:
   m_ObjectHideFlags: 0
@@ -1121,9 +1126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c539eddba5eef448712ebdf7a3b37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenSpawn: 1
   enemy: {fileID: 753713752002872613, guid: 6bbc496f99dfeff47a1e17a93cd79ca7, type: 3}
+  timeBetweenSpawn: 1
   numberOfEnemies: 4
+  timeBetweenWaves: 0
+  pathC: {fileID: 0}
+  waveText: {fileID: 0}
+  enemiesText: {fileID: 0}
+  enemiesNumber: 0
 --- !u!4 &1006638152
 Transform:
   m_ObjectHideFlags: 0
@@ -2312,7 +2322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068202220970517009, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

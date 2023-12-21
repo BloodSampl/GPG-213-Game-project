@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     float verticalRotStore;
     Vector3 moveInput;
     Camera cam;
+    bool controllsLocked = true;
+    [SerializeField] GameObject[] objectsToDisable; 
+    [SerializeField] GameObject[] objectsToEnable; 
 
     private Vector3 velocity;
     private float gravity = -9.81f;
@@ -30,8 +33,38 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
-        LookCamera();
+        if (Input.GetKeyDown(KeyCode.Tab) && controllsLocked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            foreach (GameObject go in objectsToDisable)
+            {
+                go.SetActive(false);
+            }
+            foreach (GameObject go in objectsToEnable)
+            {
+                go.SetActive(true);
+            }
+            controllsLocked = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && !controllsLocked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            foreach (GameObject go in objectsToDisable)
+            {
+                go.SetActive(true);
+            }
+            foreach (GameObject go in objectsToEnable)
+            {
+                go.SetActive(false);
+            }
+            controllsLocked = true;
+        }
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            MovePlayer();
+        }
+        
+            LookCamera();
     }
 
     private void LateUpdate()
