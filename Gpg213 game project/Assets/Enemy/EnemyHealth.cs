@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
-            currency.GoldIncrease(5);
+            currency.GoldIncrease(currency.goldIncrease);
             Destroy(gameObject);
             spawner.enemiesNumber--;
             spawner.enemiesText.text = "Enemies: " + spawner.enemiesNumber.ToString();
