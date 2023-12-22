@@ -8,7 +8,7 @@ namespace BehaviorTree
     {
         private EnemyMover enemyMover;
         private PlayerMovement player;
-        private float attackDistanceThreshold = 1f;
+        private float attackDistanceThreshold = 2f;
 
         public AttackPlayerNode(EnemyMover mover, PlayerMovement player)
         {
@@ -24,6 +24,7 @@ namespace BehaviorTree
 
             if (distanceToPlayer <= attackDistanceThreshold)
             {
+                Debug.Log("Hitting player");
                 enemyMover.AttackPlayer(player);
                 return NodeState.SUCCESS;
             }

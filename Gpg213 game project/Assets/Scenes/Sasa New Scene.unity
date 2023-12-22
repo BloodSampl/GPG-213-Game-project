@@ -11637,58 +11637,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0afcc9a9e157a614b8991dc9179db943, type: 3}
---- !u!1 &434142673
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 434142675}
-  - component: {fileID: 434142674}
-  m_Layer: 0
-  m_Name: DwarfFemaleSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &434142674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434142673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c539eddba5eef448712ebdf7a3b37d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 2933105806486467058, guid: 21361182d48e99c41b22380bb178ce69, type: 3}
-  timeBetweenSpawn: 2
-  numberOfEnemies: 4
-  timeBetweenWaves: 1
-  pathC: {fileID: 1199702258}
-  waveText: {fileID: 160929442}
-  enemiesText: {fileID: 991885943}
-  enemiesNumber: 0
---- !u!4 &434142675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434142673}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 82.6, y: 69.37, z: -20.779999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &434867244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26743,58 +26691,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4880770922608714, guid: f4e3b0b9e2a90464abf3016f52c69e32, type: 3}
   m_PrefabInstance: {fileID: 936411615}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &940174516
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 940174518}
-  - component: {fileID: 940174517}
-  m_Layer: 0
-  m_Name: DwarfUndeadSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &940174517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940174516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c539eddba5eef448712ebdf7a3b37d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 5268146726495484841, guid: 16979628d3c097f49aba0cc380aad7a5, type: 3}
-  timeBetweenSpawn: 2
-  numberOfEnemies: 4
-  timeBetweenWaves: 1
-  pathC: {fileID: 1199702258}
-  waveText: {fileID: 160929442}
-  enemiesText: {fileID: 991885943}
-  enemiesNumber: 0
---- !u!4 &940174518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940174516}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.63, y: 69.37, z: 48.94}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &941442028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4232401314556262, guid: b48a1a2d55e0c2548bfd3590c0a1a829, type: 3}
@@ -60039,5 +59935,3 @@ SceneRoots:
   - {fileID: 1860282011}
   - {fileID: 1132145844}
   - {fileID: 2027615758}
-  - {fileID: 940174518}
-  - {fileID: 434142675}

@@ -18,17 +18,18 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            // Implement logic to follow the player
-            // Example: Move towards the player using pathfinding or simple navigation
+           
             float distanceToPlayer = Vector3.Distance(enemyMover.transform.position, player.transform.position);
 
             if (distanceToPlayer <= followDistanceThreshold)
             {
+                Debug.Log("following player");
                 enemyMover.FollowPlayer(player.transform.position);
                 return NodeState.SUCCESS;
             }
             else
             {
+                //Debug.Log("leave player");
                 return NodeState.FAILURE;
             }
         }
