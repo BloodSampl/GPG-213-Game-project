@@ -21,10 +21,10 @@ public class EnemyMover : MonoBehaviour
         // Create instances of FollowPlayerNode, AttackPlayerNode, and FollowPathNode
         FollowPlayerNode followNode = new FollowPlayerNode(this, player);
         AttackPlayerNode attackNode = new AttackPlayerNode(this, player);
-        FollowPathNode pathNode = new FollowPathNode(this, predefinedPath); // Define your path or disable this node if not needed
+        
 
         // Create the behavior tree root node (now named SelectorNode)
-        behaviorTreeRoot = new SelectorNode(followNode, attackNode, pathNode);
+        behaviorTreeRoot = new SelectorNode(followNode, attackNode);
     }
     private void Update()
     {
@@ -40,31 +40,24 @@ public class EnemyMover : MonoBehaviour
             }
         }
     }
-    public void MoveTowards(Vector3 targetPosition)
-    {
-        // Implement your movement logic here
-        // Example: Move towards the target position
-
-        // Debug.Log("Moving towards: " + targetPosition);
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-    }
     public void FollowPlayer(Vector3 targetPosition)
     {
         // Implement your movement logic here
         // Example: Move towards the target position
-
-        // Debug.Log("Following player to: " + targetPosition);
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        
+            StopCoroutine(EnemyPathFinder());
+            Debug.Log("Following player to: " + targetPosition);
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        
+        
     }
     public void AttackPlayer(PlayerMovement targetPlayer)
     {
-        // Implement your attack logic here
-        // Example: Deal damage to the player
+        
 
-        // Debug.Log("Attacking player: " + targetPlayer.name);
-        // Add your attack logic here (e.g., reducing player health, playing attack animation, etc.)
+        Debug.Log("Attacking player: " + targetPlayer.name);
+        
     }
     IEnumerator EnemyPathFinder()
     {
