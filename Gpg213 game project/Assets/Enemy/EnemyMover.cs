@@ -12,7 +12,7 @@ public class EnemyMover : MonoBehaviour
     [Range(0f,5f)] public float speed = 1f;
     private BTNode behaviorTreeRoot;
     public PlayerMovement player;
-    List<Vector3> predefinedPath;
+    bool followingPlayer;
 
     private void Start()
     {
@@ -44,12 +44,13 @@ public class EnemyMover : MonoBehaviour
     {
         // Implement your movement logic here
         // Example: Move towards the target position
-        
+            followingPlayer = true;
             StopCoroutine(EnemyPathFinder());
             Debug.Log("Following player to: " + targetPosition);
+            transform.LookAt(targetPosition);
             float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-        
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition,step);
+            
         
     }
     public void AttackPlayer(PlayerMovement targetPlayer)
@@ -79,7 +80,12 @@ public class EnemyMover : MonoBehaviour
                     travelTime += Time.deltaTime * speed;
                     transform.position = Vector3.Lerp(startPostion, endPostion, travelTime);
                     yield return new WaitForEndOfFrame();
+                    if (followingPlayer)
+                    {
+                        break;
+                    }
                 }
+                followingPlayer = false;
             }
         }
     }
