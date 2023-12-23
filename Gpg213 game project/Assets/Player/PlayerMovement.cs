@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (cam == null) cam = Camera.main;
+
         cam.transform.position = lookPoint.position;
         cam.transform.rotation = lookPoint.rotation;
     }

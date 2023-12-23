@@ -8232,8 +8232,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enemies comes in waves and there are Infinite number of waves.Each wave
-    opens a new Door where enemies will spawn, a max of 4 doors
+  m_Text: Enemies spawn in waves, each door will unlock a new enemy type, up to a
+    maximum of 3 enemy types. Beyond the first 3 waves there will be  an infinite
+    amount of waves.
 --- !u!222 &265550372
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24293,7 +24294,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You will earn Gold by killing enemies.
+  m_Text: 'You will earn Gold by killing enemies. '
 --- !u!222 &787917448
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36125,15 +36126,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -915.11774
+      value: -906.44
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -289.06473
+      value: -275.74
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -38.44
+      value: -35.73
       objectReference: {fileID: 0}
     - target: {fileID: 2892846877545043948, guid: 3aa945c80a92a69409dcc7c734f719e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44522,6 +44523,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4125110090802062, guid: f4cc5b289c05ba24a91e90c82bbbcdd2, type: 3}
   m_PrefabInstance: {fileID: 777512728}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1430233182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430233184}
+  - component: {fileID: 1430233183}
+  m_Layer: 5
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1430233183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430233182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b3538cb46b67b4091acacef6885397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: Tutorial
+--- !u!224 &1430233184
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430233182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.84479, y: 0.84479, z: 0.84479}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 811, y: 456}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1430716805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45048,7 +45098,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You can also use power-ups to boost you defence.
+  m_Text: You can  spend gold to use powerups in order to gain an advantage.
 --- !u!222 &1445168403
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46257,8 +46307,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Use gold to place traps around the base. The are 3 different type of traps
-    each with its Unique Ability.
+  m_Text: 'Use gold to place traps around the base. The are 3 different types of
+    traps and each has it''s own unique ability. '
 --- !u!222 &1492725042
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51505,8 +51555,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a 3D First Person Tower Defence game. Defend your base from enemies
-    and survive.
+  m_Text: This is a 3D First Person Tower Defence game. Defend your base from the
+    enemy Dwarfs and survive.
 --- !u!222 &1659217010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53721,7 +53771,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1735223475}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1430233183}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1735223475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68975,7 +69037,7 @@ GameObject:
   - component: {fileID: 2070144498}
   m_Layer: 0
   m_Name: Guide02Cam
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69818,8 +69880,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your task is to protect the Base from enemy. Defend the 2 crystals in the
-    base. Each crystal has HP of 200.
+  m_Text: Your task is to protect the Base from the enemy Dwarfs. Defend the crystals
+    in your base. They have a combined total HP of 200
 --- !u!222 &2108605139
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70970,6 +71032,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1316207941}
+  - {fileID: 1430233184}
   - {fileID: 998716231}
   - {fileID: 1832967693}
   - {fileID: 1541438395}
