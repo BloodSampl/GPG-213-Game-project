@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] PathFindingCalculations pathC;
     [SerializeField] TextMeshProUGUI waveText;
     [SerializeField] public TextMeshProUGUI enemiesText;
+    
     [HideInInspector]
     public int  enemiesNumber = 0;
     bool waveEnd = false;
@@ -35,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
         waveText.text = "Wave: " + pathC.wave.ToString();
         pathC.pathFind = true;
         waveEnd = false;
+        
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
         {
             StartCoroutine(SpawnEnemy());
             waveEnd = true;
+            
         }
 
     }
