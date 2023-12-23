@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(waveEnd == false)
+        if(waveEnd == false && pathC.wave <= 3)
         {
             StartCoroutine(SpawnEnemy());
             waveEnd = true;
