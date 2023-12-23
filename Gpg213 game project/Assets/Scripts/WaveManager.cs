@@ -3,10 +3,10 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public CutsceneManager cutsceneManager;
-
+    public EnemySpawner enemySpawner;
     
 
-    void EndWave()
+    public void EndWave()
     {
        
         cutsceneManager.OnWaveEnd();
