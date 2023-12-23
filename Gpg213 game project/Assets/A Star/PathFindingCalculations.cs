@@ -10,7 +10,7 @@ public class PathFindingCalculations : MonoBehaviour
     PathFindingGrid grid;
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] Vector2Int startingNode; //30 ,0
-    [SerializeField] Vector2Int endNode;  //30 ,84
+    [SerializeField] public Vector2Int endNode;  //30 ,84
     [SerializeField] Vector2Int secondStartingNode; //60 ,20
     [SerializeField] Vector2Int thirdStartingNode;//  5,84
     public List<Node> enemyPath = new List<Node>();
@@ -19,6 +19,7 @@ public class PathFindingCalculations : MonoBehaviour
 
     public int wave = 1;
     public bool pathFind = true;
+    public bool makeNewPath;
 
 
     private void Awake()
@@ -33,26 +34,25 @@ public class PathFindingCalculations : MonoBehaviour
     }
     private void Update()
     {
-        if (wave== 1 && pathFind)
+        if (wave== 1 && pathFind && !makeNewPath)
         {
             FindPath(startingNode, endNode);
             pathFind = false;
             
         }
-        if (wave == 2 && pathFind)
+        if (wave == 2 && pathFind && !makeNewPath)
         {
             FindPath(secondStartingNode, endNode);
             pathFind = false;
 
         }
-        if (wave == 3 && pathFind)
+        if (wave == 3 && pathFind && !makeNewPath)
         {
             FindPath(thirdStartingNode, endNode);
             pathFind = false;
-
         }
     }
-    void FindPath(Vector2Int startingNode, Vector2Int endNode)
+    public void FindPath(Vector2Int startingNode, Vector2Int endNode)
     {
         Node startNode = grid.GetNode(startingNode);
         Node targetNode = grid.GetNode(endNode);
