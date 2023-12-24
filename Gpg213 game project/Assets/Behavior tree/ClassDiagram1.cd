@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BehaviorTree.BTNode" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Behavior tree\BTNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree.SelectorNode" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Behavior tree\SelectorNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree.FollowPlayerNode" Collapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Behavior tree\FollowPlayerNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree.AttackPlayerNode" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Behavior tree\AttackPlayerNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="BehaviorTree.NodeState" Collapsed="true">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Behavior tree\BTNode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
