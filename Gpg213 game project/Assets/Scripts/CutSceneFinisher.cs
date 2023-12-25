@@ -22,10 +22,11 @@ public class CutSceneFinisher : MonoBehaviour
     {
         yield return new WaitForSeconds(animDuration);
 
+        
         SceneManager.UnloadSceneAsync(sceneIndex);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Main Scene"));
         Time.timeScale = 1;
-        yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
 
 
         //SceneManager.UnloadSceneAsync(currentSceneIndex + 1);

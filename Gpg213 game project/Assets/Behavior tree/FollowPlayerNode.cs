@@ -24,7 +24,7 @@ namespace BehaviorTree
             if (distanceToPlayer <= followDistanceThreshold)
             {
                 Debug.Log("following player");
-                enemyMover.FollowPlayer(player.transform.position);
+               // enemyMover.FollowPlayer(player.transform.position);
                 return NodeState.SUCCESS;
             }
             else

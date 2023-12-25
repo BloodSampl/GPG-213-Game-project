@@ -24616,6 +24616,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19888176, guid: 0a89fee664e9cd24ba62b1b167efc11b, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19888176, guid: 0a89fee664e9cd24ba62b1b167efc11b, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19888176, guid: 0a89fee664e9cd24ba62b1b167efc11b, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19888176, guid: 0a89fee664e9cd24ba62b1b167efc11b, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 19961692, guid: 0a89fee664e9cd24ba62b1b167efc11b, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -57494,9 +57510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7034990995216361000, guid: 783360df91f67774184a14ddbb624918, type: 3}
-  timeBetweenSpawn: 2
-  numberOfEnemies: 4
-  timeBetweenWaves: 1
+  timeBetweenSpawn: 2.5
+  numberOfEnemies: 12
+  timeBetweenWaves: 15
   pathC: {fileID: 1199702258}
   waveText: {fileID: 160929442}
   enemiesText: {fileID: 991885943}

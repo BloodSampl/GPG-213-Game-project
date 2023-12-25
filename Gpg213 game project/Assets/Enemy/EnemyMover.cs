@@ -86,7 +86,7 @@ public class EnemyMover : MonoBehaviour
         return Vector2Int.zero;
     }
 
-    public void FollowPlayer(Vector3 targetPosition)
+   /* public void FollowPlayer(Vector3 targetPosition)
     {
 
          followingPlayer = true;
@@ -95,7 +95,7 @@ public class EnemyMover : MonoBehaviour
          transform.LookAt(targetPosition);
          float step = speed * Time.deltaTime;
          transform.position = Vector3.MoveTowards(transform.position, targetPosition,step);         
-    }
+    }*/
     public void AttackPlayer(PlayerMovement targetPlayer)
     {
         Debug.Log("Attacking player: " + targetPlayer.name);    
