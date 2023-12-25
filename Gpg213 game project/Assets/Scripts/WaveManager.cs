@@ -9,6 +9,6 @@ public class WaveManager : MonoBehaviour
     public void EndWave()
     {
        
-        cutsceneManager.OnWaveEnd();
+       // cutsceneManager.OnWaveEnd();
     }
 }

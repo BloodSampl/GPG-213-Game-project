@@ -19,7 +19,13 @@ public class ScenesController : MonoBehaviour
 
     public void LoadGameScene() 
     {
+        // Ensure the main scene is loaded additively
+        SceneManager.LoadScene("Main Scene", LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Main Scene"));
+
+        // Load the actual game scene
         SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
     
     }
 

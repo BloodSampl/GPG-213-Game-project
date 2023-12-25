@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BaseHealth : MonoBehaviour
     [SerializeField] int maxHealth = 20;
     [SerializeField] TextMeshProUGUI baseHelthText;
     [SerializeField] Material dissolveMaterial;
+
     //[SerializeField] int maxHealth;
     private void Start()
     {
@@ -30,6 +32,8 @@ public class BaseHealth : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log("GameOver");
+            SceneManager.LoadScene(0);
+
         }
     }
 }
